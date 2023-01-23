@@ -66,7 +66,7 @@ jobs:
           # 8000 -> 80 
           - name: Docker run in main branch
             run: |
-              docker stop ${{ env.NAME }} && docker rm ${{ env.NAME }} && docker rmi ${{ github.ACTOR }}/mint-api:latest
+              docker stop ${{ env.NAME }} && docker rm ${{ env.NAME }} && docker rmi ${{ github.ACTOR }}/${{ env.NAME }}:latest
               docker run -d -t -i \
               -p 80:8000 \
-              --name ${{ env.NAME }}  ${{ github.ACTOR }}/vortex:latest
+              --name ${{ env.NAME }}  ${{ github.ACTOR }}/${{ env.NAME }}:latest
