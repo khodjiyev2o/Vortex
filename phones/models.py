@@ -1,5 +1,5 @@
 from django.db import models
-
+from stores.models import Store
 # Create your models here.
 
 STATUS_CHOICES = [
@@ -10,6 +10,8 @@ STATUS_CHOICES = [
 
 class Phone(models.Model):
     model = models.CharField(max_length=100)
+    imei = models.CharField(max_length=30)
+    store = models.ForeignKey(Store, on_delete=models.CASCADE)
     color = models.CharField(max_length=100)
     initial_price = models.DecimalField(max_digits=10, decimal_places=2)
     sold_price = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)
