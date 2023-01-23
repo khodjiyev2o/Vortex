@@ -47,7 +47,7 @@ jobs:
           run: docker build . --file Dockerfile --tag ${{ github.ACTOR }}/vortex:latest
       
         - name: Docker Push for main branch
-          run: docker push ${{ secrets.ACTOR }}/vortex:latest
+          run: docker push ${{ github.ACTOR }}/vortex:latest
       
            
 
